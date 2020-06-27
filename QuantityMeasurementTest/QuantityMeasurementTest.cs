@@ -29,5 +29,20 @@ namespace QuantityMeasurementTest
                 throw new QuantityException(QuantityException.ExceptionType.InvalidValue, e.Message);
             }
         }
+
+        [Test]
+        public void One_Feet_And_Two_Feet_Should_Return_Not_Equal()
+        {
+            try
+            {
+                double feetOne = length.ConvertValueInDifferentUnit(Length.QuantityEnum.FEET, 1);
+                double feetTwo = length.ConvertValueInDifferentUnit(Length.QuantityEnum.FEET, 2);
+                Assert.AreNotEqual(feetOne, feetTwo);
+            }
+            catch (QuantityException e)
+            {
+                throw new QuantityException(QuantityException.ExceptionType.InvalidValue, e.Message);
+            }
+        }
     }
 }
