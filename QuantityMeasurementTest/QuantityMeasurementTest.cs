@@ -44,5 +44,21 @@ namespace QuantityMeasurementTest
                 throw new QuantityException(QuantityException.ExceptionType.InvalidValue, e.Message);
             }
         }
+
+        [Test]
+        public void Reference_Check_For_Equality()
+        {
+            try
+            {
+                Length feetOne = new Length();
+                Length feetTwo = new Length(); ;
+                bool areEqual = ReferenceEquals(feetOne, feetTwo);
+                Assert.IsFalse(areEqual);
+            }
+            catch (QuantityException e)
+            {
+                throw new QuantityException(QuantityException.ExceptionType.InvalidValue, e.Message);
+            }
+        }
     }
 }
