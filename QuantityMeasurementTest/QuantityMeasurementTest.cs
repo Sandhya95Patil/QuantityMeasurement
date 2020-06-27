@@ -30,8 +30,11 @@ namespace QuantityMeasurementTest
             }
         }
 
+        /// <summary>
+        /// Check 0 & null should not equal
+        /// </summary>
         [Test]
-        public void Null_Check_For_Equality()
+        public void Zero_And_Null_Should_Not_Equal()
         {
             try
             {
@@ -45,13 +48,16 @@ namespace QuantityMeasurementTest
             }
         }
 
+        /// <summary>
+        /// Check two different references should return false
+        /// </summary>
         [Test]
-        public void Reference_Check_For_Equality()
+        public void Two_Different_Reference_Should_Return_False()
         {
             try
             {
                 Length feetOne = new Length();
-                Length feetTwo = new Length(); ;
+                Length feetTwo = new Length(); 
                 bool areEqual = ReferenceEquals(feetOne, feetTwo);
                 Assert.IsFalse(areEqual);
             }
@@ -60,5 +66,26 @@ namespace QuantityMeasurementTest
                 throw new QuantityException(QuantityException.ExceptionType.InvalidValue, e.Message);
             }
         }
+
+        /// <summary>
+        /// One object assign to another object should return true
+        /// </summary>
+        [Test]
+        public void One_Object_Assign_To_Another_Object_Should_Return_True()
+        {
+            try
+            {
+                Length feetOne = new Length();
+                Length feetTwo = new Length();
+                feetTwo = feetOne;
+                bool areEqual = ReferenceEquals(feetOne, feetTwo);
+                Assert.IsTrue(areEqual);
+            }
+            catch (QuantityException e)
+            {
+                throw new QuantityException(QuantityException.ExceptionType.InvalidValue, e.Message);
+            }
+        }
+
     }
 }
