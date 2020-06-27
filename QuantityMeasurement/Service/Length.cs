@@ -67,7 +67,6 @@ namespace QuantityMeasurement.Service
         {
             try
             {
-               
                 return length;
             }
             catch (QuantityException e)

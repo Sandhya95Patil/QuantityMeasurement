@@ -31,12 +31,12 @@ namespace QuantityMeasurementTest
         }
 
         [Test]
-        public void One_Feet_And_Two_Feet_Should_Return_Not_Equal()
+        public void Null_Check_For_Equality()
         {
             try
             {
-                double feetOne = length.ConvertValueInDifferentUnit(Length.QuantityEnum.FEET, 1);
-                double feetTwo = length.ConvertValueInDifferentUnit(Length.QuantityEnum.FEET, 2);
+                double feetOne = length.ConvertValueInDifferentUnit(Length.QuantityEnum.FEET, 0.0);
+                Length feetTwo = null;
                 Assert.AreNotEqual(feetOne, feetTwo);
             }
             catch (QuantityException e)
