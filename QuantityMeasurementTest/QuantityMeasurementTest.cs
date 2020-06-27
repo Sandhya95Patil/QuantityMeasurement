@@ -236,5 +236,44 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(yardOne, yardTwo);
         }
 
+        [Test]
+        public void One_Feet_And_One_Yard_Should_Not_Equal()
+        {
+            double oneFeet = length.ConvertValueInDifferentUnit(QuantityEnums.FEET_TO_INCH, 1);
+            double oneYard = length.ConvertValueInDifferentUnit(QuantityEnums.YARD_TO_INCH, 1);
+            Assert.AreNotEqual(oneFeet, oneYard);
+        }
+
+        [Test]
+        public void One_Inch_And_One_Yard_Should_Not_Equal()
+        {
+            double oneInch = length.ConvertValueInDifferentUnit(QuantityEnums.INCH, 1);
+            double yardInInch = length.ConvertValueInDifferentUnit(QuantityEnums.YARD_TO_INCH, 1);
+            Assert.AreNotEqual(oneInch, yardInInch);
+        }
+
+        [Test]
+        public void One_Yard_And_36Inch_Should_Equal()
+        {
+            double oneYard = length.ConvertValueInDifferentUnit(QuantityEnums.YARD_TO_INCH, 1);
+            double yardInInch = length.ConvertValueInDifferentUnit(QuantityEnums.INCH, 36);
+            Assert.AreEqual(oneYard, yardInInch);
+        }
+
+        [Test]
+        public void Given36_Inch_And_One_Yard_Should_Equal()
+        {
+            double inch = length.ConvertValueInDifferentUnit(QuantityEnums.INCH, 36);
+            double yardInInch = length.ConvertValueInDifferentUnit(QuantityEnums.YARD_TO_INCH, 1);
+            Assert.AreEqual(inch, yardInInch);
+        }
+
+        [Test]
+        public void One_Yard_And_3Feet_Should_Equal()
+        {
+            double yard = length.ConvertValueInDifferentUnit(QuantityEnums.YARD_TO_INCH, 1);
+            double feet = length.ConvertValueInDifferentUnit(QuantityEnums.FEET_TO_INCH, 3);
+            Assert.AreEqual(yard, feet);
+        }
     }
 }
