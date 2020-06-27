@@ -87,5 +87,23 @@ namespace QuantityMeasurementTest
             }
         }
 
+
+        /// <summary>
+        /// Check type of two object should return true
+        /// </summary>
+        [Test]
+        public void Check_Type_Of_Two_Object_Return_True()
+        {
+            try
+            {
+                double feetOne = length.ConvertValueInDifferentUnit(Length.QuantityEnum.FEET, 0.0);
+                double feetTwo = length.ConvertValueInDifferentUnit(Length.QuantityEnum.FEET, 0.0);
+                Assert.AreEqual(feetOne.GetType(), feetTwo.GetType());
+            }
+            catch (QuantityException e)
+            {
+                throw new QuantityException(QuantityException.ExceptionType.InvalidValue, e.Message);
+            }
+        }
     }
 }
