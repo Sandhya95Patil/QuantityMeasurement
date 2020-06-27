@@ -4,7 +4,8 @@ using System.Text;
 
 namespace QuantityMeasurement.Interface
 {
-    class IConvert
+    interface IConvertValue
     {
+        double ConvertValueInDifferentUnit(Enum.QuantityEnums quantityEnums, double value);
     }
 }

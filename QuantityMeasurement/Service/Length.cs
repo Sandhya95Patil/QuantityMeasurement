@@ -1,4 +1,5 @@
 ﻿using QuantityMeasurement.Enum;
+using QuantityMeasurement.Exception;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,7 +8,17 @@ namespace QuantityMeasurement.Service
 {
     public class Length
     {
-        public enum QuantityEnum {FEET, INCH}
+        public Length()
+        {
+
+        }
+        public enum QuantityEnum 
+        {
+            FEET,
+            INCH,
+            FEETTOINCH,
+            YARDTOINCH
+        }
 
         private readonly QuantityEnums quantityEnum;
         private readonly double value;
@@ -50,6 +61,19 @@ namespace QuantityMeasurement.Service
             }
 
             return false;
+        }
+
+        public double ConvertValueInDifferentUnit(QuantityEnum quantityEnum, double length)
+        {
+            try
+            {
+               
+                return length;
+            }
+            catch (QuantityException e)
+            {
+                throw new QuantityException(QuantityException.ExceptionType.InvalidValue, e.Message);
+            }
         }
     }
 }
