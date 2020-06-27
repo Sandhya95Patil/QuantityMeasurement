@@ -30,43 +30,21 @@ namespace QuantityMeasurement.Service
             this.value = value;
         }
 
-        public override bool Equals(object obj)
-        {
-            return obj is Length length &&
-                value == length.value &&
-                quantityEnum ==length.quantityEnum;
-
-        }
-
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(value, quantityEnum);
-        }
-
-        public bool Compare(Length length)
-        {
-            if (this.quantityEnum.Equals(length.quantityEnum))
-            {
-                return this.Equals(length);
-            }
-
-            if (this.quantityEnum.Equals(QuantityEnum.FEET) && length.quantityEnum.Equals(QuantityEnum.INCH))
-            {
-                return length.value.CompareTo(this.value * FeetToInch) == 0;
-            }
-
-            if (this.quantityEnum.Equals(QuantityEnum.INCH) && length.quantityEnum.Equals(QuantityEnum.FEET))
-            {
-                return length.value.CompareTo(this.value / InchToFeet) == 0;
-            }
-
-            return false;
-        }
-
         public double ConvertValueInDifferentUnit(QuantityEnum quantityEnum, double length)
         {
             try
             {
+                switch (quantityEnum)
+                {
+                    case QuantityEnum.FEET:
+                        return length;
+                    case QuantityEnum.INCH:
+                        return length;
+                    case QuantityEnum.FEETTOINCH:
+                        return length * 12.0;  
+                    case QuantityEnum.YARDTOINCH:
+                        return length * 36.0;
+                }
                 return length;
             }
             catch (QuantityException e)

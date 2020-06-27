@@ -15,6 +15,9 @@ namespace QuantityMeasurementTest
 
         }
 
+        /// <summary>
+        /// Zero feet & zero feet should return equal
+        /// </summary>
         [Test]
         public void Zero_Feet_And_Zero_Feet_Should_Return_Equal()
         {
@@ -57,7 +60,7 @@ namespace QuantityMeasurementTest
             try
             {
                 Length feetOne = new Length();
-                Length feetTwo = new Length(); 
+                Length feetTwo = new Length();
                 bool areEqual = ReferenceEquals(feetOne, feetTwo);
                 Assert.IsFalse(areEqual);
             }
@@ -92,7 +95,7 @@ namespace QuantityMeasurementTest
         /// Check type of two object should return true
         /// </summary>
         [Test]
-        public void Check_Type_Of_Two_Object_Return_True()
+        public void Check_Type_Of_Two_Object_Should_Return_True()
         {
             try
             {
@@ -105,5 +108,39 @@ namespace QuantityMeasurementTest
                 throw new QuantityException(QuantityException.ExceptionType.InvalidValue, e.Message);
             }
         }
+
+        /// <summary>
+        /// One feet & two feet should return not equal
+        /// </summary>
+        [Test]
+        public void One_Feet_And_Two_Feet_Should_Return_Not_Equal()
+        {
+            double feetOne = length.ConvertValueInDifferentUnit(Length.QuantityEnum.FEET, 1);
+            double feetTwo = length.ConvertValueInDifferentUnit(Length.QuantityEnum.FEET, 2);
+            Assert.AreNotEqual(feetOne, feetTwo);
+        }
+
+        /// <summary>
+        /// One feet & one inch should return not equal
+        /// </summary>
+        [Test]
+        public void One_Feet_And_One_Inch_Should_Return_Not_Equal()
+        {
+            double feetOne = length.ConvertValueInDifferentUnit(Length.QuantityEnum.FEETTOINCH, 1);
+            double feetTwo = length.ConvertValueInDifferentUnit(Length.QuantityEnum.INCH, 1);
+            Assert.AreNotEqual(feetOne, feetTwo);
+        }
+
+        /// <summary>
+        /// One inch & one inch should return equal
+        /// </summary>
+        [Test]
+        public void One_Inch_And_One_Inch()
+        {
+            double feetOne = length.ConvertValueInDifferentUnit(Length.QuantityEnum.INCH, 1);
+            double feetTwo = length.ConvertValueInDifferentUnit(Length.QuantityEnum.INCH, 1);
+            Assert.AreEqual(feetOne, feetTwo);
+        }
+
     }
 }
