@@ -16,7 +16,7 @@ namespace QuantityMeasurementTest
         }
 
         /// <summary>
-        /// Zero feet & zero feet should return equal
+        /// Zero feet and zero feet should return equal
         /// </summary>
         [Test]
         public void Zero_Feet_And_Zero_Feet_Should_Return_Equal()
@@ -34,7 +34,7 @@ namespace QuantityMeasurementTest
         }
 
         /// <summary>
-        /// Check 0 & null should not equal
+        /// Check 0 and null should not equal
         /// </summary>
         [Test]
         public void Zero_And_Null_Should_Not_Equal()
@@ -110,7 +110,7 @@ namespace QuantityMeasurementTest
         }
 
         /// <summary>
-        /// One feet & two feet should return not equal
+        /// One feet and two feet should return not equal
         /// </summary>
         [Test]
         public void One_Feet_And_Two_Feet_Should_Return_Not_Equal()
@@ -121,7 +121,7 @@ namespace QuantityMeasurementTest
         }
 
         /// <summary>
-        /// One feet & one inch should return not equal
+        /// One feet and one inch should return not equal
         /// </summary>
         [Test]
         public void One_Feet_And_One_Inch_Should_Return_Not_Equal()
@@ -132,7 +132,7 @@ namespace QuantityMeasurementTest
         }
 
         /// <summary>
-        /// One inch & one inch should return equal
+        /// One inch and one inch should return equal
         /// </summary>
         [Test]
         public void One_Inch_And_One_Inch()
@@ -143,7 +143,7 @@ namespace QuantityMeasurementTest
         }
 
         /// <summary>
-        /// Zero inch & null should not equal
+        /// Zero inch and null should not equal
         /// </summary>
         [Test]
         public void Zero_Inch_And_Null_Should_Not_Equal()
@@ -151,6 +151,50 @@ namespace QuantityMeasurementTest
             double inchOne = length.ConvertValueInDifferentUnit(Length.QuantityEnum.INCH, 1);
             Length inchTwo = null;
             Assert.AreNotEqual(inchOne, inchTwo);
+        }
+
+        /// <summary>
+        /// one inch and 12 inch should not equal
+        /// </summary>
+        [Test]
+        public void One_Inch_And_12_Inch_Should_Not_Equal()
+        {
+            double inchOne = length.ConvertValueInDifferentUnit(Length.QuantityEnum.FEETTOINCH, 1.0);
+            double inchTwo = length.ConvertValueInDifferentUnit(Length.QuantityEnum.INCH, 1.0);
+            Assert.AreNotEqual(inchOne, inchTwo);
+        }
+
+        /// <summary>
+        /// zero yard and zero yard should return equal
+        /// </summary>
+        [Test]
+        public void Zero_Yard_And_Zero_Yard_Should_Equal()
+        {
+            double yardOne = length.ConvertValueInDifferentUnit(Length.QuantityEnum.YARD, 0.0);
+            double yardTwo = length.ConvertValueInDifferentUnit(Length.QuantityEnum.YARD, 0.0);
+            Assert.AreEqual(yardOne, yardTwo);
+        }
+
+        /// <summary>
+        /// one yard and one feet should return not equal 
+        /// </summary>
+        [Test]
+        public void One_Yard_And_One_Feet_Should_Not_Equal()
+        {
+            double yardOne = length.ConvertValueInDifferentUnit(Length.QuantityEnum.FEETTOINCH, 1);
+            double yardTwo = length.ConvertValueInDifferentUnit(Length.QuantityEnum.YARD, 1);
+            Assert.AreNotEqual(yardOne, yardTwo);
+        }
+
+        /// <summary>
+        /// One yard and one inch should not equal
+        /// </summary>
+        [Test]
+        public void One_Yard_And_One_Inch_Should_Not_Equal()
+        {
+            double yardOne = length.ConvertValueInDifferentUnit(Length.QuantityEnum.YARD, 1);
+            double yardTwo = length.ConvertValueInDifferentUnit(Length.QuantityEnum.YARDTOINCH, 1);
+            Assert.AreNotEqual(yardOne, yardTwo);
         }
     }
 }

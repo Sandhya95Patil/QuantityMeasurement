@@ -16,6 +16,7 @@ namespace QuantityMeasurement.Service
         {
             FEET,
             INCH,
+            YARD,
             FEETTOINCH,
             YARDTOINCH
         }
@@ -41,7 +42,9 @@ namespace QuantityMeasurement.Service
                     case QuantityEnum.INCH:
                         return length;
                     case QuantityEnum.FEETTOINCH:
-                        return length * 12.0;  
+                        return length * 12.0;
+                    case QuantityEnum.YARD:
+                        return length;
                     case QuantityEnum.YARDTOINCH:
                         return length * 36.0;
                 }
