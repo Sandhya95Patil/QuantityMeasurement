@@ -4,12 +4,15 @@ using System.Text;
 
 namespace QuantityMeasurement.Enum
 {
-    public class QuantityEnums
+    public class QuantityEnum
     {
-        public enum Quantity
+        public enum QuantityEnums
         {
             FEET,
-            INCH
+            INCH,
+            FEET_TO_INCH,
+            YARD,
+            YARD_TO_INCH,
         }
     }
 }

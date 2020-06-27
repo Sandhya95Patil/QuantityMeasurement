@@ -3,6 +3,7 @@ using QuantityMeasurement.Exception;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using static QuantityMeasurement.Enum.QuantityEnum;
 
 namespace QuantityMeasurement.Service
 {
@@ -12,40 +13,31 @@ namespace QuantityMeasurement.Service
         {
 
         }
-        public enum QuantityEnum 
-        {
-            FEET,
-            INCH,
-            YARD,
-            FEETTOINCH,
-            YARDTOINCH
-        }
 
-        private readonly QuantityEnums quantityEnum;
+        private readonly Enum.QuantityEnum quantityEnum;
         private readonly double value;
-        private const double FeetToInch = 12.0;
-        private const double InchToFeet = 12.0;
-        public Length(double value, QuantityEnums enums)
+
+        public Length(double value, Enum.QuantityEnum enums)
         {
             this.quantityEnum = enums;
             this.value = value;
         }
 
-        public double ConvertValueInDifferentUnit(QuantityEnum quantityEnum, double length)
+        public double ConvertValueInDifferentUnit(QuantityEnums quantityEnum, double length)
         {
             try
             {
                 switch (quantityEnum)
                 {
-                    case QuantityEnum.FEET:
+                    case QuantityEnums.FEET:
                         return length;
-                    case QuantityEnum.INCH:
+                    case QuantityEnums.INCH:
                         return length;
-                    case QuantityEnum.FEETTOINCH:
+                    case QuantityEnums.FEET_TO_INCH:
                         return length * 12.0;
-                    case QuantityEnum.YARD:
+                    case QuantityEnums.YARD:
                         return length;
-                    case QuantityEnum.YARDTOINCH:
+                    case QuantityEnums.YARD_TO_INCH:
                         return length * 36.0;
                 }
                 return length;

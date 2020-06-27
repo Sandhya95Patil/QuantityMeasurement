@@ -6,6 +6,6 @@ namespace QuantityMeasurement.Interface
 {
     interface IConvertValue
     {
-        double ConvertValueInDifferentUnit(Enum.QuantityEnums quantityEnums, double value);
+        double ConvertValueInDifferentUnit(Enum.QuantityEnum quantityEnums, double value);
     }
 }
