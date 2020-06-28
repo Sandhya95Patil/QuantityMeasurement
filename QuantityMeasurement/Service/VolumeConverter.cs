@@ -1,14 +1,22 @@
-﻿using QuantityMeasurement.Enum;
-using QuantityMeasurement.Interface;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using static QuantityMeasurement.Enum.QuantityEnum;
+﻿
 
 namespace QuantityMeasurement.Service
 {
+    using QuantityMeasurement.Enum;
+    using QuantityMeasurement.Interface;
+    using static QuantityMeasurement.Enum.QuantityEnum;
+
+    /// <summary>
+    /// Volume converter class
+    /// </summary>
     public class VolumeConverter : IVolumeConverter
     {
+        /// <summary>
+        /// Method for volume convert
+        /// </summary>
+        /// <param name="quantityEnums">quantityEnums parameter</param>
+        /// <param name="value">value parameter</param>
+        /// <returns>return the converted volume</returns>
         public double VolumeComverter(QuantityEnum.QuantityEnums quantityEnums, double value)
         {
             switch (quantityEnums)

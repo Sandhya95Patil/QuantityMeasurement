@@ -1,19 +1,27 @@
-using NUnit.Framework;
-using QuantityMeasurement.Exception;
-using QuantityMeasurement.Service;
-using static QuantityMeasurement.Enum.QuantityEnum;
 
 namespace QuantityMeasurementTest
 {
+    using NUnit.Framework;
+    using QuantityMeasurement.Exception;
+    using QuantityMeasurement.Service;
+    using static QuantityMeasurement.Enum.QuantityEnum;
+
+    /// <summary>
+    /// Tests class
+    /// </summary>
     public class Tests
     {
-        public Length length;
+        public LengthConverter length;
+        public AddTwoValues addTwoValues;
 
+        /// <summary>
+        /// Setup the instance
+        /// </summary>
         [SetUp]
         public void Setup()
         {
-            this.length = new Length();
-
+            this.length = new LengthConverter();
+            this.addTwoValues = new AddTwoValues();
         }
 
         /// <summary>
@@ -43,7 +51,7 @@ namespace QuantityMeasurementTest
             try
             {
                 double feetOne = length.ConvertValueInDifferentUnit(QuantityEnums.FEET, 0.0);
-                Length feetTwo = null;
+                LengthConverter feetTwo = null;
                 Assert.AreNotEqual(feetOne, feetTwo);
             }
             catch (QuantityException e)
@@ -60,8 +68,8 @@ namespace QuantityMeasurementTest
         {
             try
             {
-                Length feetOne = new Length();
-                Length feetTwo = new Length();
+                LengthConverter feetOne = new LengthConverter();
+                LengthConverter feetTwo = new LengthConverter();
                 bool areEqual = ReferenceEquals(feetOne, feetTwo);
                 Assert.IsFalse(areEqual);
             }
@@ -79,8 +87,8 @@ namespace QuantityMeasurementTest
         {
             try
             {
-                Length feetOne = new Length();
-                Length feetTwo = new Length();
+                LengthConverter feetOne = new LengthConverter();
+                LengthConverter feetTwo = new LengthConverter();
                 feetTwo = feetOne;
                 bool areEqual = ReferenceEquals(feetOne, feetTwo);
                 Assert.IsTrue(areEqual);
@@ -154,6 +162,9 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(feet, inch);
         }
 
+        /// <summary>
+        /// Twelve inch equal 1 feet
+        /// </summary>
         [Test]
         public void Twelve_Inch_Equals_1Feet()
         {
@@ -180,7 +191,7 @@ namespace QuantityMeasurementTest
         public void Zero_Inch_And_Null_Should_Not_Equal()
         {
             double inchOne = length.ConvertValueInDifferentUnit(QuantityEnums.INCH, 1);
-            Length inchTwo = null;
+            LengthConverter inchTwo = null;
             Assert.AreNotEqual(inchOne, inchTwo);
         }
 
@@ -311,7 +322,7 @@ namespace QuantityMeasurementTest
         [Test]
         public void Two_Plus_Two_Equal_Four_Inch_Should_Equal()
         {
-            double addTwoValue = length.AddTwoValue(2, 2);
+            double addTwoValue = addTwoValues.AddTwoValue(2, 2);
             double expectedValue = 4;
             Assert.AreEqual(expectedValue, addTwoValue);
         }
@@ -323,7 +334,7 @@ namespace QuantityMeasurementTest
         public void TwoFeet_Plus_TwoInch_Should_Equal_14Inch()
         {
             double feetInInch = length.ConvertValueInDifferentUnit(QuantityEnums.FEET_TO_INCH, 1);
-            double addTwoValue = length.AddTwoValue(feetInInch, 2);
+            double addTwoValue = addTwoValues.AddTwoValue(feetInInch, 2);
             double expectedValue = 14;
             Assert.AreEqual(expectedValue, addTwoValue);
         }
@@ -347,9 +358,9 @@ namespace QuantityMeasurementTest
         {
             double inch = length.ConvertValueInDifferentUnit(QuantityEnums.INCH, 2);
             double cmToInch = length.ConvertValueInDifferentUnit(QuantityEnums.CENTIMETER_TO_INCH, 2.5);
-            double addTwoValues = length.AddTwoValue(inch, cmToInch);
+            double addTwoValue = addTwoValues.AddTwoValue(inch, cmToInch);
             double expectedValue = 3;
-            Assert.AreEqual(expectedValue, addTwoValues);
+            Assert.AreEqual(expectedValue, addTwoValue);
         }
     }
 }

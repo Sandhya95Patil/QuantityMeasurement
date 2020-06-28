@@ -1,17 +1,24 @@
-﻿using NUnit.Framework;
-using QuantityMeasurement.Enum;
-using QuantityMeasurement.Interface;
-using QuantityMeasurement.Service;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using static QuantityMeasurement.Enum.QuantityEnum;
+﻿
 
 namespace QuantityMeasurementTest
 {
+    using NUnit.Framework;
+    using QuantityMeasurement.Service;
+    using static QuantityMeasurement.Enum.QuantityEnum;
+
+    /// <summary>
+    /// Class Temprature converter
+    /// </summary>
     class TemperatureConverterTest
     {
+        /// <summary>
+        /// Create instance
+        /// </summary>
         public TemperatureConverter temperatureConverter;
+
+        /// <summary>
+        /// Set the instance
+        /// </summary>
         [SetUp] 
         public void Setup()
         {

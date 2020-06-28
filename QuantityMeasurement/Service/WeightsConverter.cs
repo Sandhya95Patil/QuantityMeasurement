@@ -1,14 +1,21 @@
-﻿using QuantityMeasurement.Enum;
-using QuantityMeasurement.Interface;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using static QuantityMeasurement.Enum.QuantityEnum;
+﻿
 
 namespace QuantityMeasurement.Service
 {
+    using QuantityMeasurement.Interface;
+    using static QuantityMeasurement.Enum.QuantityEnum;
+
+    /// <summary>
+    /// Weight converter class
+    /// </summary>
     public class WeightsConverter : IWeightsConverter
     {
+        /// <summary>
+        /// Method for convert weight
+        /// </summary>
+        /// <param name="quantityEnums">quantityEnums parameter</param>
+        /// <param name="value">value parameter</param>
+        /// <returns></returns>
         public double WeightConverter(QuantityEnums quantityEnums, double value)
         {
             switch (quantityEnums)

@@ -1,29 +1,36 @@
-﻿using QuantityMeasurement.Enum;
-using QuantityMeasurement.Exception;
-using QuantityMeasurement.Interface;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using static QuantityMeasurement.Enum.QuantityEnum;
+﻿
 
 namespace QuantityMeasurement.Service
 {
-    public class Length: IConvertValue, IAddTwoValues
+    using QuantityMeasurement.Exception;
+    using QuantityMeasurement.Interface;
+    using static QuantityMeasurement.Enum.QuantityEnum;
+
+    /// <summary>
+    /// Length converter class
+    /// </summary>
+    public class LengthConverter: IConvertValue
     {
-        public Length()
+        /// <summary>
+        /// initializes the memory
+        /// </summary>
+        public LengthConverter()
         {
 
         }
 
+        /// <summary>
+        /// quantity enums
+        /// </summary>
         private readonly Enum.QuantityEnum quantityEnum;
         private readonly double value;
 
-        public Length(double value, Enum.QuantityEnum enums)
-        {
-            this.quantityEnum = enums;
-            this.value = value;
-        }
-
+        /// <summary>
+        /// Method for converte length
+        /// </summary>
+        /// <param name="quantityEnum">quantityEnum parameter</param>
+        /// <param name="length">length parameter</param>
+        /// <returns>return the converted length</returns>
         public double ConvertValueInDifferentUnit(QuantityEnums quantityEnum, double length)
         {
             try
@@ -53,12 +60,6 @@ namespace QuantityMeasurement.Service
             {
                 throw new QuantityException(QuantityException.ExceptionType.InvalidValue, e.Message);
             }
-        }
-
-
-        public double AddTwoValue(double firstValue, double secondValue)
-        {
-            return firstValue + secondValue;
         }
     }
 }
