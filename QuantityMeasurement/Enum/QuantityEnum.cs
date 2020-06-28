@@ -23,7 +23,9 @@ namespace QuantityMeasurement.Enum
             KILOGRAM,
             KILOGRAM_TO_GRAM,
             TONNE_TO_KILOGRAM,
-            GRAM
+            GRAM,
+            FARENHIET_TO_CELSIUS,
+            CELSIUS_TO_FARENHIET
         }
     }
 }
