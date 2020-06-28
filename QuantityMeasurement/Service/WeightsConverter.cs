@@ -1,5 +1,9 @@
-﻿
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="WeightsConverter.cs" company="BridgeLabz">
+//     Company copyright tag.
+// </copyright>
+// <creater name="Sandhya Patil"/>
+//-----------------------------------------------------------------------
 namespace QuantityMeasurement.Service
 {
     using QuantityMeasurement.Interface;
@@ -15,7 +19,7 @@ namespace QuantityMeasurement.Service
         /// </summary>
         /// <param name="quantityEnums">quantityEnums parameter</param>
         /// <param name="value">value parameter</param>
-        /// <returns></returns>
+        /// <returns>return the conerted weight</returns>
         public double WeightConverter(QuantityEnums quantityEnums, double value)
         {
             switch (quantityEnums)

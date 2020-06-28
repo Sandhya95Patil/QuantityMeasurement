@@ -1,11 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="QuantityEnum.cs" company="BridgeLabz">
+//     Company copyright tag.
+// </copyright>
+// <creater name="Sandhya Patil"/>
+//-----------------------------------------------------------------------
 namespace QuantityMeasurement.Enum
 {
     public class QuantityEnum
     {
+        /// <summary>
+        /// Define enum for quantity conversion
+        /// </summary>
         public enum QuantityEnums
         {
             FEET,
