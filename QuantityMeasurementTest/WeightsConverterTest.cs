@@ -26,5 +26,23 @@ namespace QuantityMeasurementTest
             double expectedValue = 1000;
             Assert.AreEqual(expectedValue, oneKGInGram);
         }
+
+        [Test]
+        public void One_Tonne_And_Thousand_KGs_Should_Equal()
+        {
+            double tonneToKGs = weightsConverter.WeightConverter(QuantityEnums.TONNE_TO_KILOGRAM, 1);
+            double expectedValue = 1000;
+            Assert.AreEqual(expectedValue, tonneToKGs);
+        }
+
+        [Test]
+        public void One_Tonne_Thousand_Grams_Should_Equal_OneThousandOne()
+        {
+            double tonneToKGs = weightsConverter.WeightConverter(QuantityEnums.TONNE_TO_KILOGRAM, 1);
+            double gram = weightsConverter.WeightConverter(QuantityEnums.KILOGRAM, 1);
+            double addWeights = addTwoValue.AddTwoValue(tonneToKGs, gram);
+            double expectedValue = 1001;
+            Assert.AreEqual(expectedValue, addWeights);
+        }
     }
 }

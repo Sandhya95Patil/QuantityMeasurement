@@ -17,6 +17,10 @@ namespace QuantityMeasurement.Service
                     return value;
                 case QuantityEnums.KILOGRAM_TO_GRAM:
                     return value * 1000;
+                case QuantityEnums.TONNE_TO_KILOGRAM:
+                    return value * 1000;
+                case QuantityEnums.GRAM:
+                    return value;
             }
             return value;
         }

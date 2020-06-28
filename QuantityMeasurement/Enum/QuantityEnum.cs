@@ -21,7 +21,9 @@ namespace QuantityMeasurement.Enum
             LITER_TO_MILILITER,
             MILILITER_TO_LITER,
             KILOGRAM,
-            KILOGRAM_TO_GRAM
+            KILOGRAM_TO_GRAM,
+            TONNE_TO_KILOGRAM,
+            GRAM
         }
     }
 }
