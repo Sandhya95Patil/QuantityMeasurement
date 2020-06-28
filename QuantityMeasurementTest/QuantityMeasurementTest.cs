@@ -302,5 +302,11 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(14, addTwoValue);
         }
 
+        [Test]
+        public void OneFeet_Plus_OneFeet_Should_Equal_24Inch()
+        {
+            double feetInInch = length.ConvertValueInDifferentUnit(QuantityEnums.FEET_TO_INCH, 2);
+            Assert.AreEqual(24, feetInInch);
+        }
     }
 }
