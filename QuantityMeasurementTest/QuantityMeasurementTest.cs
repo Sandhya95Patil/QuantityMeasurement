@@ -284,6 +284,16 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(cm, inch);
         }
 
-    
+        /// <summary>
+        /// 2inch + 2inch should equal 4inch 
+        /// </summary>
+        [Test]
+        public void Two_Plus_Two_Equal_Four_Inch_Should_Equal()
+        {
+            double addTwoValue = length.AddTwoValue(2, 2);
+            Assert.AreEqual(4, addTwoValue);
+        }
+
+   
     }
 }
