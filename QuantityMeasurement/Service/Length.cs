@@ -40,7 +40,10 @@ namespace QuantityMeasurement.Service
                         return length;
                     case QuantityEnums.YARD_TO_INCH:
                         return length * 36.0;
-                   
+                    case QuantityEnums.CM:
+                        return length;
+                    case QuantityEnums.INCH_TO_CENTIMETER:
+                        return length * 2.5;
                 }
                 return length;
             }
