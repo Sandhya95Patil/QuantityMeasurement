@@ -17,7 +17,9 @@ namespace QuantityMeasurement.Enum
             CM,
             CENTIMETER_TO_INCH,
             GALLON_TO_LETER,
-            LITER
+            LITER,
+            LITER_TO_MILILITER,
+            MILILITER_TO_LITER
         }
     }
 }

@@ -36,5 +36,17 @@ namespace QuantityMeasurementTest
             double expectedValue = 7.56;
             Assert.AreEqual(expectedValue, addVolume);
         }
+
+        [Test]
+        public void One_Liter_Plus_Thousand_Mililiter_Should_Equal_Two_Liter()
+        {
+            double liter = volume.VolumeComverter(QuantityEnums.LITER, 1);
+            double miliLiter = volume.VolumeComverter(QuantityEnums.MILILITER_TO_LITER, 1000);
+            double addVolums = addTwoValues.AddTwoValue(liter, miliLiter);
+            double expectedValue = 2;
+            Assert.AreEqual(expectedValue, addVolums);
+        }
+
+
     }
 }

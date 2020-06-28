@@ -17,6 +17,10 @@ namespace QuantityMeasurement.Service
                     return value * 3.78;
                 case QuantityEnums.LITER:
                     return value;
+                case QuantityEnums.MILILITER_TO_LITER:
+                    return 1000 / value;
+                case QuantityEnums.LITER_TO_MILILITER:
+                    return value * 1000;
             }
             return value;
         }
