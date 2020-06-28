@@ -19,7 +19,9 @@ namespace QuantityMeasurement.Enum
             GALLON_TO_LETER,
             LITER,
             LITER_TO_MILILITER,
-            MILILITER_TO_LITER
+            MILILITER_TO_LITER,
+            KILOGRAM,
+            KILOGRAM_TO_GRAM
         }
     }
 }
