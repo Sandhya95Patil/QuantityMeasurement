@@ -15,7 +15,9 @@ namespace QuantityMeasurement.Enum
             YARD_TO_INCH,
             INCH_TO_CENTIMETER,
             CM,
-            CENTIMETER_TO_INCH
+            CENTIMETER_TO_INCH,
+            GALLON_TO_LETER,
+            LITER
         }
     }
 }
