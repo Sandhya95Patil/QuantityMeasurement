@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using static QuantityMeasurement.Enum.QuantityEnum;
 
 namespace QuantityMeasurement.Interface
 {
     interface IConvertValue
     {
-        double ConvertValueInDifferentUnit(Enum.QuantityEnum quantityEnums, double value);
+        double ConvertValueInDifferentUnit(QuantityEnums quantityEnums, double value);
     }
 }

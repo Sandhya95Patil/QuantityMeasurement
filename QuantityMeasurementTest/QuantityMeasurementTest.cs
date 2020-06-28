@@ -275,5 +275,15 @@ namespace QuantityMeasurementTest
             double feet = length.ConvertValueInDifferentUnit(QuantityEnums.FEET_TO_INCH, 3);
             Assert.AreEqual(yard, feet);
         }
+
+        [Test]
+        public void Two_Inch_And_5CM_Should_Equal()
+        {
+            double cm = length.ConvertValueInDifferentUnit(QuantityEnums.CM, 5);
+            double inch = length.ConvertValueInDifferentUnit(QuantityEnums.INCH_TO_CENTIMETER, 2);
+            Assert.AreEqual(cm, inch);
+        }
+
+    
     }
 }

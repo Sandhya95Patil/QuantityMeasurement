@@ -13,6 +13,8 @@ namespace QuantityMeasurement.Enum
             FEET_TO_INCH,
             YARD,
             YARD_TO_INCH,
+            INCH_TO_CENTIMETER,
+            CM
         }
     }
 }

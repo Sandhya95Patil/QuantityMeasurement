@@ -1,5 +1,6 @@
 ﻿using QuantityMeasurement.Enum;
 using QuantityMeasurement.Exception;
+using QuantityMeasurement.Interface;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,7 +8,7 @@ using static QuantityMeasurement.Enum.QuantityEnum;
 
 namespace QuantityMeasurement.Service
 {
-    public class Length
+    public class Length: IConvertValue, IAddTwoValues
     {
         public Length()
         {
@@ -39,6 +40,7 @@ namespace QuantityMeasurement.Service
                         return length;
                     case QuantityEnums.YARD_TO_INCH:
                         return length * 36.0;
+                   
                 }
                 return length;
             }
@@ -46,6 +48,12 @@ namespace QuantityMeasurement.Service
             {
                 throw new QuantityException(QuantityException.ExceptionType.InvalidValue, e.Message);
             }
+        }
+
+
+        public double AddTwoValue(double firstValue, double secondValue)
+        {
+            return firstValue + secondValue;
         }
     }
 }
