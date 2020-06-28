@@ -228,6 +228,9 @@ namespace QuantityMeasurementTest
             Assert.AreNotEqual(yardOne, yardTwo);
         }
 
+        /// <summary>
+        /// three feet equals one yard
+        /// </summary>
         [Test]
         public void Three_Feet_Equals_One_Yard()
         {
@@ -236,6 +239,9 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(yardOne, yardTwo);
         }
 
+        /// <summary>
+        /// one feet and one yard should equal
+        /// </summary>
         [Test]
         public void One_Feet_And_One_Yard_Should_Not_Equal()
         {
@@ -244,6 +250,9 @@ namespace QuantityMeasurementTest
             Assert.AreNotEqual(oneFeet, oneYard);
         }
 
+        /// <summary>
+        /// one inch and one yard should equal
+        /// </summary>
         [Test]
         public void One_Inch_And_One_Yard_Should_Not_Equal()
         {
@@ -252,6 +261,9 @@ namespace QuantityMeasurementTest
             Assert.AreNotEqual(oneInch, yardInInch);
         }
 
+        /// <summary>
+        /// one yard and thirty six inch should equal
+        /// </summary>
         [Test]
         public void One_Yard_And_36Inch_Should_Equal()
         {
@@ -260,6 +272,9 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(oneYard, yardInInch);
         }
 
+        /// <summary>
+        /// thirty six inch and one yard should equal
+        /// </summary>
         [Test]
         public void Given36_Inch_And_One_Yard_Should_Equal()
         {
@@ -268,6 +283,9 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(inch, yardInInch);
         }
 
+        /// <summary>
+        /// one yard and 3 feet should equal
+        /// </summary>
         [Test]
         public void One_Yard_And_3Feet_Should_Equal()
         {
@@ -276,6 +294,9 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(yard, feet);
         }
 
+        /// <summary>
+        /// Two inch and five cm should equal
+        /// </summary>
         [Test]
         public void Two_Inch_And_5CM_Should_Equal()
         {
@@ -291,22 +312,44 @@ namespace QuantityMeasurementTest
         public void Two_Plus_Two_Equal_Four_Inch_Should_Equal()
         {
             double addTwoValue = length.AddTwoValue(2, 2);
-            Assert.AreEqual(4, addTwoValue);
+            double expectedValue = 4;
+            Assert.AreEqual(expectedValue, addTwoValue);
         }
 
+        /// <summary>
+        /// Two feet plus two inch should equal fourtine inch
+        /// </summary>
         [Test]
         public void TwoFeet_Plus_TwoInch_Should_Equal_14Inch()
         {
             double feetInInch = length.ConvertValueInDifferentUnit(QuantityEnums.FEET_TO_INCH, 1);
             double addTwoValue = length.AddTwoValue(feetInInch, 2);
-            Assert.AreEqual(14, addTwoValue);
+            double expectedValue = 14;
+            Assert.AreEqual(expectedValue, addTwoValue);
         }
 
+        /// <summary>
+        /// one feet plus one feet should equal twentyfour
+        /// </summary>
         [Test]
         public void OneFeet_Plus_OneFeet_Should_Equal_24Inch()
         {
             double feetInInch = length.ConvertValueInDifferentUnit(QuantityEnums.FEET_TO_INCH, 2);
-            Assert.AreEqual(24, feetInInch);
+            double expectedValue = 24;
+            Assert.AreEqual(expectedValue, feetInInch);
+        }
+
+        /// <summary>
+        /// two inch plus 2.5 cm should equal 3Inch
+        /// </summary>
+        [Test]
+        public void TwoInch_Plus_2_5CM_Should_Equal_3Inch()
+        {
+            double inch = length.ConvertValueInDifferentUnit(QuantityEnums.INCH, 2);
+            double cmToInch = length.ConvertValueInDifferentUnit(QuantityEnums.CENTIMETER_TO_INCH, 2.5);
+            double addTwoValues = length.AddTwoValue(inch, cmToInch);
+            double expectedValue = 3;
+            Assert.AreEqual(expectedValue, addTwoValues);
         }
     }
 }

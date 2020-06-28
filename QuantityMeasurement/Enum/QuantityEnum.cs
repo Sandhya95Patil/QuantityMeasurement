@@ -14,7 +14,8 @@ namespace QuantityMeasurement.Enum
             YARD,
             YARD_TO_INCH,
             INCH_TO_CENTIMETER,
-            CM
+            CM,
+            CENTIMETER_TO_INCH
         }
     }
 }

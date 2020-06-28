@@ -44,6 +44,8 @@ namespace QuantityMeasurement.Service
                         return length;
                     case QuantityEnums.INCH_TO_CENTIMETER:
                         return length * 2.5;
+                    case QuantityEnums.CENTIMETER_TO_INCH:
+                        return length /2.5;
                 }
                 return length;
             }
