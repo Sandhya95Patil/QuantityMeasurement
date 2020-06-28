@@ -285,7 +285,7 @@ namespace QuantityMeasurementTest
         }
 
         /// <summary>
-        /// 2inch + 2inch should equal 4inch 
+        /// 2inch + 2inch should equal 4inch
         /// </summary>
         [Test]
         public void Two_Plus_Two_Equal_Four_Inch_Should_Equal()
@@ -294,6 +294,13 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(4, addTwoValue);
         }
 
-   
+        [Test]
+        public void TwoFeet_Plus_TwoInch_Should_Equal_14Inch()
+        {
+            double feetInInch = length.ConvertValueInDifferentUnit(QuantityEnums.FEET_TO_INCH, 1);
+            double addTwoValue = length.AddTwoValue(feetInInch, 2);
+            Assert.AreEqual(14, addTwoValue);
+        }
+
     }
 }
