@@ -6,6 +6,7 @@
 //-----------------------------------------------------------------------
 namespace QuantityMeasurement.Service
 {
+    using QuantityMeasurement.Exception;
     using QuantityMeasurement.Interface;
     using static QuantityMeasurement.Enum.QuantityEnum;
 
@@ -22,18 +23,26 @@ namespace QuantityMeasurement.Service
         /// <returns>return the conerted weight</returns>
         public double WeightConverter(QuantityEnums quantityEnums, double value)
         {
-            switch (quantityEnums)
+            try
             {
-                case QuantityEnums.KILOGRAM:
-                    return value;
-                case QuantityEnums.KILOGRAM_TO_GRAM:
-                    return value * 1000;
-                case QuantityEnums.TONNE_TO_KILOGRAM:
-                    return value * 1000;
-                case QuantityEnums.GRAM:
-                    return value;
+                switch (quantityEnums)
+                {
+                    case QuantityEnums.KILOGRAM:
+                        return value;
+                    case QuantityEnums.KILOGRAM_TO_GRAM:
+                        return value * 1000;
+                    case QuantityEnums.TONNE_TO_KILOGRAM:
+                        return value * 1000;
+                    case QuantityEnums.GRAM:
+                        return value;
+                }
+                return value;
             }
-            return value;
+            catch(QuantityException e)
+            {
+                throw new QuantityException(QuantityException.ExceptionType.InvalidValue, e.Message);
+            }
+            
         }
     }
 }

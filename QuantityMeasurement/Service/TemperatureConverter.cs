@@ -7,6 +7,7 @@
 namespace QuantityMeasurement.Service
 {
     using QuantityMeasurement.Enum;
+    using QuantityMeasurement.Exception;
     using QuantityMeasurement.Interface;
     using static QuantityMeasurement.Enum.QuantityEnum;
 
@@ -23,14 +24,21 @@ namespace QuantityMeasurement.Service
         /// <returns>return the converted temperature</returns>
         public double TempConverter(QuantityEnum.QuantityEnums quantityEnums, double value)
         {
-            switch (quantityEnums)
+            try
             {
-                case QuantityEnums.FARENHIET_TO_CELSIUS:
-                    return (value - 32) * 5 / 9;
-                case QuantityEnums.CELSIUS_TO_FARENHIET:
-                    return value * 1.8 + 32;
+                switch (quantityEnums)
+                {
+                    case QuantityEnums.FARENHIET_TO_CELSIUS:
+                        return (value - 32) * 5 / 9;
+                    case QuantityEnums.CELSIUS_TO_FARENHIET:
+                        return value * 1.8 + 32;
+                }
+                return value;
             }
-            return value;
+            catch(QuantityException e)
+            {
+                throw new QuantityException(QuantityException.ExceptionType.InvalidValue, e.Message);
+            }
         }
     }
 }

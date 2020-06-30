@@ -16,12 +16,12 @@ namespace QuantityMeasurementTest
     public class VolumeConverterTest
     {
         /// <summary>
-        /// Initialise instance
+        /// Declare property
         /// </summary>
         public VolumeConverter volume;
 
         /// <summary>
-        /// Initialise instance
+        /// Declare property
         /// </summary>
         public AddTwoValues addTwoValues;
 
@@ -50,7 +50,7 @@ namespace QuantityMeasurementTest
         /// one gallon and 3.78 liters should equal 7.57 liters
         /// </summary>
         [Test]
-        public void One_Gallon_And_3_78Liters_Equals_Liters_7_57()
+        public void One_Gallon_Plus_3_78Liters_Equals_Liters_7_57()
         {
             double gallon = volume.VolumeComverter(QuantityEnums.GALLON_TO_LETER, 1);
             double liters = volume.VolumeComverter(QuantityEnums.LITER, 3.78);
@@ -60,7 +60,7 @@ namespace QuantityMeasurementTest
         }
 
         /// <summary>
-        /// one liter and thousand mililiter should equal two liter
+        /// one liter and one thousand mililiter should equal two liter
         /// </summary>
         [Test]
         public void One_Liter_Plus_Thousand_Mililiter_Should_Equal_Two_Liter()
@@ -70,6 +70,17 @@ namespace QuantityMeasurementTest
             double addVolums = addTwoValues.AddTwoValue(liter, miliLiter);
             double expectedValue = 2;
             Assert.AreEqual(expectedValue, addVolums);
+        }
+
+        /// <summary>
+        /// One liter and one thousand mililiter should equal 
+        /// </summary>
+        [Test]
+        public void One_Liter_And_Thousand_Mililiter_Should_Equal_Same()
+        {
+            double liter = volume.VolumeComverter(QuantityEnums.LITER, 1);
+            double mililiter = volume.VolumeComverter(QuantityEnums.MILILITER_TO_LITER, 1000);
+            Assert.AreEqual(liter, mililiter);
         }
     }
 }

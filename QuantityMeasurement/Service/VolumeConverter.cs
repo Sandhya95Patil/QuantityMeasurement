@@ -7,6 +7,7 @@
 namespace QuantityMeasurement.Service
 {
     using QuantityMeasurement.Enum;
+    using QuantityMeasurement.Exception;
     using QuantityMeasurement.Interface;
     using static QuantityMeasurement.Enum.QuantityEnum;
 
@@ -23,18 +24,26 @@ namespace QuantityMeasurement.Service
         /// <returns>return the converted volume</returns>
         public double VolumeComverter(QuantityEnum.QuantityEnums quantityEnums, double value)
         {
-            switch (quantityEnums)
+            try
             {
-                case QuantityEnums.GALLON_TO_LETER:
-                    return value * 3.78;
-                case QuantityEnums.LITER:
-                    return value;
-                case QuantityEnums.MILILITER_TO_LITER:
-                    return 1000 / value;
-                case QuantityEnums.LITER_TO_MILILITER:
-                    return value * 1000;
+                switch (quantityEnums)
+                {
+                    case QuantityEnums.GALLON_TO_LETER:
+                        return value * 3.78;
+                    case QuantityEnums.LITER:
+                        return value;
+                    case QuantityEnums.MILILITER_TO_LITER:
+                        return 1000 / value;
+                    case QuantityEnums.LITER_TO_MILILITER:
+                        return value * 1000;
+                }
+                return value;
             }
-            return value;
+            catch(QuantityException e)
+            {
+                throw new QuantityException(QuantityException.ExceptionType.InvalidValue, e.Message);
+            }
+            
         }
     }
 }

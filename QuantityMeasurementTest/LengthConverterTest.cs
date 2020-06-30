@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------
-// <copyright file="Tests.cs" company="BridgeLabz">
+// <copy right file="LengthConverterTest.cs" company="BridgeLabz">
 //     Company copyright tag.
 // </copyright>
 // <creater name="Sandhya Patil"/>
@@ -16,7 +16,14 @@ namespace QuantityMeasurementTest
     /// </summary>
     public class Tests
     {
+        /// <summary>
+        /// Declare length converter class variable
+        /// </summary>
         public LengthConverter length;
+
+        /// <summary>
+        /// Declare add two values class variable
+        /// </summary>
         public AddTwoValues addTwoValues;
 
         /// <summary>
@@ -104,7 +111,6 @@ namespace QuantityMeasurementTest
             }
         }
 
-
         /// <summary>
         /// Check type of two object should return true
         /// </summary>
@@ -157,7 +163,7 @@ namespace QuantityMeasurementTest
         }
 
         /// <summary>
-        /// One feet equal to 12 inch shouls return equal
+        /// One feet equal to 12 inch should return equal
         /// </summary>
         [Test]
         public void One_Feet_Equals_12Inch()
@@ -333,7 +339,7 @@ namespace QuantityMeasurementTest
         }
 
         /// <summary>
-        /// Two feet plus two inch should equal fourtine inch
+        /// Two feet plus two inch should equal four tine inch
         /// </summary>
         [Test]
         public void TwoFeet_Plus_TwoInch_Should_Equal_14Inch()
@@ -345,7 +351,7 @@ namespace QuantityMeasurementTest
         }
 
         /// <summary>
-        /// one feet plus one feet should equal twentyfour
+        /// one feet plus one feet should equal twenty four
         /// </summary>
         [Test]
         public void OneFeet_Plus_OneFeet_Should_Equal_24Inch()
