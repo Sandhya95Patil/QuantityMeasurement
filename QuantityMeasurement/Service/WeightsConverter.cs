@@ -25,16 +25,23 @@ namespace QuantityMeasurement.Service
         {
             try
             {
-                switch (quantityEnums)
+                if (quantityEnums.Equals(QuantityEnums.KILOGRAM) || quantityEnums.Equals(QuantityEnums.KILOGRAM_TO_GRAM) || quantityEnums.Equals(QuantityEnums.TONNE_TO_KILOGRAM) || quantityEnums.Equals(QuantityEnums.GRAM))
                 {
-                    case QuantityEnums.KILOGRAM:
-                        return value;
-                    case QuantityEnums.KILOGRAM_TO_GRAM:
-                        return value * 1000;
-                    case QuantityEnums.TONNE_TO_KILOGRAM:
-                        return value * 1000;
-                    case QuantityEnums.GRAM:
-                        return value;
+                    switch (quantityEnums)
+                    {
+                        case QuantityEnums.KILOGRAM:
+                            return value;
+                        case QuantityEnums.KILOGRAM_TO_GRAM:
+                            return value * 1000;
+                        case QuantityEnums.TONNE_TO_KILOGRAM:
+                            return value * 1000;
+                        case QuantityEnums.GRAM:
+                            return value;
+                    }
+                }
+                else
+                {
+                    throw new QuantityException(QuantityException.ExceptionType.QUANTITY_UNEQUALITY, "This is not allowed");
                 }
                 return value;
             }
