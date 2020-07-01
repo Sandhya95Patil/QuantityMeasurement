@@ -40,7 +40,7 @@ namespace QuantityMeasurement.Service
             }
             catch(QuantityException e)
             {
-                throw new QuantityException(QuantityException.ExceptionType.InvalidValue, e.Message);
+                throw new QuantityException(QuantityException.ExceptionType.QUANTITY_UNEQUALITY, e.Message);
             }
             
         }

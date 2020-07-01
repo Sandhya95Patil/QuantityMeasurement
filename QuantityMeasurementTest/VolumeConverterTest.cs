@@ -82,5 +82,14 @@ namespace QuantityMeasurementTest
             double mililiter = volume.VolumeComverter(QuantityEnums.MILILITER_TO_LITER, 1000);
             Assert.AreEqual(liter, mililiter);
         }
+
+        [Test]
+        public void Two_Liter_And_Two_Thousand_MiliLiter_Should_Equal_Four_Liter()
+        {
+            double liter1 = volume.VolumeComverter(QuantityEnums.LITER, 2);
+            double mililiterInLiter = volume.VolumeComverter(QuantityEnums.MILILITER_TO_LITER, 2000);
+            double addValues = addTwoValues.AddTwoValue(liter1, mililiterInLiter);
+            Assert.AreEqual(expected: 4, addValues);
+        }
     }
 }

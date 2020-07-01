@@ -26,22 +26,29 @@ namespace QuantityMeasurement.Service
         {
             try
             {
-                switch (quantityEnums)
+                if(quantityEnums.Equals(QuantityEnums.LITER) || quantityEnums.Equals(QuantityEnums.GALLON_TO_LETER) || quantityEnums.Equals(QuantityEnums.MILILITER_TO_LITER) || quantityEnums.Equals(QuantityEnums.LITER_TO_MILILITER))
                 {
-                    case QuantityEnums.GALLON_TO_LETER:
-                        return value * 3.78;
-                    case QuantityEnums.LITER:
-                        return value;
-                    case QuantityEnums.MILILITER_TO_LITER:
-                        return 1000 / value;
-                    case QuantityEnums.LITER_TO_MILILITER:
-                        return value * 1000;
+                    switch (quantityEnums)
+                    {
+                        case QuantityEnums.GALLON_TO_LETER:
+                            return value * 3.78;
+                        case QuantityEnums.LITER:
+                            return value;
+                        case QuantityEnums.MILILITER_TO_LITER:
+                            return value / 1000;
+                        case QuantityEnums.LITER_TO_MILILITER:
+                            return value * 1000;
+                    }
+                }
+                else
+                {
+                    throw new QuantityException(QuantityException.ExceptionType.QUANTITY_UNEQUALITY, "This is not allowed");
                 }
                 return value;
             }
             catch(QuantityException e)
             {
-                throw new QuantityException(QuantityException.ExceptionType.InvalidValue, e.Message);
+                throw new QuantityException(QuantityException.ExceptionType.QUANTITY_UNEQUALITY, e.Message);
             }
             
         }

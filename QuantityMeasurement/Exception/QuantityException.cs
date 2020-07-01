@@ -10,7 +10,6 @@ namespace QuantityMeasurement.Exception
     {
         public enum ExceptionType
         {
-            InvalidValue,
             QUANTITY_UNEQUALITY
         }
 
