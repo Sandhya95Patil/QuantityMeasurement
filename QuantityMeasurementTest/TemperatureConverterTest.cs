@@ -7,6 +7,7 @@
 namespace QuantityMeasurementTest
 {
     using NUnit.Framework;
+    using QuantityMeasurement.Exception;
     using QuantityMeasurement.Service;
     using static QuantityMeasurement.Enum.QuantityEnum;
 
@@ -51,6 +52,19 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(expectedValue, farenhiet);
         }
 
-
+        [Test]
+        public void Liter_And_Farenheit_When_Compare_Should_Throw_Exception()
+        {
+            try
+            {
+                double liter = temperatureConverter.TempConverter(QuantityEnums.LITER, 1);
+                double farenheit = temperatureConverter.TempConverter(QuantityEnums.FARENHIET_TO_CELSIUS, 212);
+                Assert.AreEqual(liter, farenheit);
+            }
+            catch(QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.QUANTITY_UNEQUALITY, e.EType);
+            }
+        }
     }
 }

@@ -26,18 +26,26 @@ namespace QuantityMeasurement.Service
         {
             try
             {
-                switch (quantityEnums)
+                if (quantityEnums.Equals(QuantityEnums.CELSIUS_TO_FARENHIET) || quantityEnums.Equals(QuantityEnums.FARENHIET_TO_CELSIUS))
                 {
-                    case QuantityEnums.FARENHIET_TO_CELSIUS:
-                        return (value - 32) * 5 / 9;
-                    case QuantityEnums.CELSIUS_TO_FARENHIET:
-                        return value * 1.8 + 32;
+                    switch (quantityEnums)
+                    {
+                        case QuantityEnums.FARENHIET_TO_CELSIUS:
+                            return (value - 32) * 5 / 9;
+                        case QuantityEnums.CELSIUS_TO_FARENHIET:
+                            return value * 1.8 + 32;
+                    }
                 }
+                else
+                {
+                    throw new QuantityException(QuantityException.ExceptionType.QUANTITY_UNEQUALITY, "This is not allowed");
+                }
+      
                 return value;
             }
             catch(QuantityException e)
             {
-                throw new QuantityException(QuantityException.ExceptionType.InvalidValue, e.Message);
+                throw new QuantityException(QuantityException.ExceptionType.QUANTITY_UNEQUALITY, e.Message);
             }
         }
     }
