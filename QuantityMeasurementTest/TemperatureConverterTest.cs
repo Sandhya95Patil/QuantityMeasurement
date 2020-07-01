@@ -66,5 +66,20 @@ namespace QuantityMeasurementTest
                 Assert.AreEqual(QuantityException.ExceptionType.QUANTITY_UNEQUALITY, e.EType);
             }
         }
+
+        [Test]
+        public void Feet_And_Celsius_When_Compare_Should_Throw_Exception()
+        {
+            try
+            {
+                double feet = temperatureConverter.TempConverter(QuantityEnums.FEET, 1);
+                double celsius = temperatureConverter.TempConverter(QuantityEnums.CELSIUS, 212);
+                Assert.AreEqual(feet, celsius);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.QUANTITY_UNEQUALITY, e.EType);
+            }
+        }
     }
 }
