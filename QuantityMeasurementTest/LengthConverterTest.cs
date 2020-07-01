@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------
-// <copy right file="LengthConverterTest.cs" company="BridgeLabz">
+// <copyright file="AddTwoValues.cs" company="BridgeLabz">
 //     Company copyright tag.
 // </copyright>
 // <creater name="Sandhya Patil"/>
@@ -17,22 +17,22 @@ namespace QuantityMeasurementTest
     public class Tests
     {
         /// <summary>
-        /// Declare length converter class variable
+        /// create field for length 
         /// </summary>
-        public LengthConverter length;
+        public Length length;
 
         /// <summary>
-        /// Declare add two values class variable
+        /// create field for add two values
         /// </summary>
         public AddTwoValues addTwoValues;
 
         /// <summary>
-        /// Setup the instance
+        /// Set the instances
         /// </summary>
         [SetUp]
         public void Setup()
         {
-            this.length = new LengthConverter();
+            this.length = new Length();
             this.addTwoValues = new AddTwoValues();
         }
 
@@ -63,7 +63,7 @@ namespace QuantityMeasurementTest
             try
             {
                 double feetOne = length.ConvertValueInDifferentUnit(QuantityEnums.FEET, 0.0);
-                LengthConverter feetTwo = null;
+                Length feetTwo = null;
                 Assert.AreNotEqual(feetOne, feetTwo);
             }
             catch (QuantityException e)
@@ -80,8 +80,8 @@ namespace QuantityMeasurementTest
         {
             try
             {
-                LengthConverter feetOne = new LengthConverter();
-                LengthConverter feetTwo = new LengthConverter();
+                Length feetOne = new Length();
+                Length feetTwo = new Length();
                 bool areEqual = ReferenceEquals(feetOne, feetTwo);
                 Assert.IsFalse(areEqual);
             }
@@ -99,8 +99,8 @@ namespace QuantityMeasurementTest
         {
             try
             {
-                LengthConverter feetOne = new LengthConverter();
-                LengthConverter feetTwo = new LengthConverter();
+                Length feetOne = new Length();
+                Length feetTwo = new Length();
                 feetTwo = feetOne;
                 bool areEqual = ReferenceEquals(feetOne, feetTwo);
                 Assert.IsTrue(areEqual);
@@ -110,6 +110,7 @@ namespace QuantityMeasurementTest
                 throw new QuantityException(QuantityException.ExceptionType.InvalidValue, e.Message);
             }
         }
+
 
         /// <summary>
         /// Check type of two object should return true
@@ -163,7 +164,7 @@ namespace QuantityMeasurementTest
         }
 
         /// <summary>
-        /// One feet equal to 12 inch should return equal
+        /// One feet equal to 12 inch shouls return equal
         /// </summary>
         [Test]
         public void One_Feet_Equals_12Inch()
@@ -173,9 +174,6 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(feet, inch);
         }
 
-        /// <summary>
-        /// Twelve inch equal 1 feet
-        /// </summary>
         [Test]
         public void Twelve_Inch_Equals_1Feet()
         {
@@ -202,7 +200,7 @@ namespace QuantityMeasurementTest
         public void Zero_Inch_And_Null_Should_Not_Equal()
         {
             double inchOne = length.ConvertValueInDifferentUnit(QuantityEnums.INCH, 1);
-            LengthConverter inchTwo = null;
+            Length inchTwo = null;
             Assert.AreNotEqual(inchOne, inchTwo);
         }
 
@@ -339,7 +337,7 @@ namespace QuantityMeasurementTest
         }
 
         /// <summary>
-        /// Two feet plus two inch should equal four tine inch
+        /// Two feet plus two inch should equal fourtine inch
         /// </summary>
         [Test]
         public void TwoFeet_Plus_TwoInch_Should_Equal_14Inch()
@@ -351,7 +349,7 @@ namespace QuantityMeasurementTest
         }
 
         /// <summary>
-        /// one feet plus one feet should equal twenty four
+        /// one feet plus one feet should equal twentyfour
         /// </summary>
         [Test]
         public void OneFeet_Plus_OneFeet_Should_Equal_24Inch()
@@ -372,6 +370,60 @@ namespace QuantityMeasurementTest
             double addTwoValue = addTwoValues.AddTwoValue(inch, cmToInch);
             double expectedValue = 3;
             Assert.AreEqual(expectedValue, addTwoValue);
+        }
+
+        /// <summary>
+        /// Given feet and liter when compared should throw exception
+        /// </summary>
+        [Test]
+        public void Given_Feet_And_Liter_When_Compare_Should_Throw_Exception()
+        {
+            try
+            {
+                double liter = length.ConvertValueInDifferentUnit(QuantityEnums.LITER, 1);
+                double feet = length.ConvertValueInDifferentUnit(QuantityEnums.FEET, 1);
+                Assert.AreEqual(liter, feet);
+            }
+            catch(QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.QUANTITY_UNEQUALITY, e.EType);
+            }
+        }
+
+        /// <summary>
+        /// Given feet and kilogram when compared should throw exception
+        /// </summary>
+        [Test]
+        public void Given_Feet_And_Kilogram_When_Compare_Should_Throw_Exception()
+        {
+            try
+            {
+                double kilogram = length.ConvertValueInDifferentUnit(QuantityEnums.KILOGRAM, 1);
+                double feet = length.ConvertValueInDifferentUnit(QuantityEnums.FEET, 1);
+                Assert.AreEqual(kilogram, feet);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.QUANTITY_UNEQUALITY, e.EType);
+            }
+        }
+
+        /// <summary>
+        /// Given feet and celsius when compared should throw exception
+        /// </summary>
+        [Test]
+        public void Given_Feet_And_Celsius_When_Compare_Should_Throw_Exception()
+        {
+            try
+            {
+                double celsius = length.ConvertValueInDifferentUnit(QuantityEnums.CELSIUS, 1);
+                double feet = length.ConvertValueInDifferentUnit(QuantityEnums.FEET, 1);
+                Assert.AreEqual(celsius, feet);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.QUANTITY_UNEQUALITY, e.EType);
+            }
         }
     }
 }

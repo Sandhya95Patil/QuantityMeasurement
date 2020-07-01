@@ -13,12 +13,12 @@ namespace QuantityMeasurement.Service
     /// <summary>
     /// Length converter class
     /// </summary>
-    public class LengthConverter: IConvertValue
+    public class Length: IConvertValue
     {
         /// <summary>
         /// initializes the memory
         /// </summary>
-        public LengthConverter()
+        public Length()
         {
 
         }
@@ -39,6 +39,7 @@ namespace QuantityMeasurement.Service
         {
             try
             {
+                if (quantityEnum.Equals(QuantityEnums.FEET) || quantityEnum.Equals(QuantityEnums.INCH) || quantityEnum.Equals(QuantityEnums.FEET_TO_INCH) || quantityEnum.Equals(QuantityEnums.YARD) || quantityEnum.Equals(QuantityEnums.YARD_TO_INCH) || quantityEnum.Equals(QuantityEnums.CM) || quantityEnum.Equals(QuantityEnums.CENTIMETER_TO_INCH) || quantityEnum.Equals(QuantityEnums.INCH_TO_CENTIMETER))
                 switch (quantityEnum)
                 {
                     case QuantityEnums.FEET:
@@ -58,11 +59,15 @@ namespace QuantityMeasurement.Service
                     case QuantityEnums.CENTIMETER_TO_INCH:
                         return length /2.5;
                 }
+                else
+                {
+                    throw new QuantityException(QuantityException.ExceptionType.QUANTITY_UNEQUALITY, "This is not allowed");
+                }
                 return length;
             }
             catch (QuantityException e)
             {
-                throw new QuantityException(QuantityException.ExceptionType.InvalidValue, e.Message);
+                throw new QuantityException(QuantityException.ExceptionType.QUANTITY_UNEQUALITY, e.Message);
             }
         }
     }

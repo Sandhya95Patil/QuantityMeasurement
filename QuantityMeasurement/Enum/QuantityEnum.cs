@@ -30,7 +30,12 @@ namespace QuantityMeasurement.Enum
             TONNE_TO_KILOGRAM,
             GRAM,
             FARENHIET_TO_CELSIUS,
-            CELSIUS_TO_FARENHIET
+            CELSIUS_TO_FARENHIET,
+            TONNE,
+            KILOGRAM_TO_TONNE,
+            CELSIUS,
+            FAHRENHEIT,
+            TEMPERATURE
         }
     }
 }
