@@ -82,6 +82,9 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(oneTonne, kilogram);
         }
 
+        /// <summary>
+        /// When kilogram and feet compare should throw exception
+        /// </summary>
         [Test]
         public void When_Kilogram_And_Feet_Compare_Should_Throw_Exception()
         {
@@ -90,6 +93,24 @@ namespace QuantityMeasurementTest
                 double kilogram = weightsConverter.WeightConverter(QuantityEnums.KILOGRAM, 1);
                 double feet = weightsConverter.WeightConverter(QuantityEnums.FEET, 1);
                 Assert.AreEqual(kilogram, feet);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.QUANTITY_UNEQUALITY, e.EType);
+            }
+        }
+
+        /// <summary>
+        /// when inch and gram compare should throw exception
+        /// </summary>
+        [Test]
+        public void When_Inch_And_Gram_Compare_Should_Throw_Exception()
+        {
+            try
+            {
+                double inch = weightsConverter.WeightConverter(QuantityEnums.INCH, 1);
+                double gram = weightsConverter.WeightConverter(QuantityEnums.GRAM, 1);
+                Assert.AreEqual(inch, gram);
             }
             catch (QuantityException e)
             {
