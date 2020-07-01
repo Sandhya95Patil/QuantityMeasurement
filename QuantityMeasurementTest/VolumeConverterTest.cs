@@ -1,17 +1,33 @@
-﻿using NUnit.Framework;
-using QuantityMeasurement.Service;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using static QuantityMeasurement.Enum.QuantityEnum;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="VolumeConverterTest.cs" company="BridgeLabz">
+//     Company copyright tag.
+// </copyright>
+// <creater name="Sandhya Patil"/>
+//-----------------------------------------------------------------------
 namespace QuantityMeasurementTest
 {
+    using NUnit.Framework;
+    using QuantityMeasurement.Service;
+    using static QuantityMeasurement.Enum.QuantityEnum;
+
+    /// <summary>
+    /// volume converter test class
+    /// </summary>
     public class VolumeConverterTest
     {
+        /// <summary>
+        /// Declare property
+        /// </summary>
         public VolumeConverter volume;
+
+        /// <summary>
+        /// Declare property
+        /// </summary>
         public AddTwoValues addTwoValues;
 
+        /// <summary>
+        /// Set the instance 
+        /// </summary>
         [SetUp]
         public void Setup()
         {
@@ -19,16 +35,22 @@ namespace QuantityMeasurementTest
             this.addTwoValues = new AddTwoValues();
         }
 
+        /// <summary>
+        /// one gallon and 3.78 liter should equal 
+        /// </summary>
         [Test]
-        public void When_Gallon_And_Liter_Compared_Should_Return_Same()
+        public void When_1_Gallon_And_3_78_Liter_Compared_Should_Return_Same()
         {
             double gallon = volume.VolumeComverter(QuantityEnums.GALLON_TO_LETER, 1);
             double liter = volume.VolumeComverter(QuantityEnums.LITER, 3.78);
             Assert.AreEqual(gallon, liter);
         }
 
+        /// <summary>
+        /// one gallon and 3.78 liters should equal 7.57 liters
+        /// </summary>
         [Test]
-        public void One_Gallon_And_3_78Liters_Equals_Liters_7_57()
+        public void One_Gallon_Plus_3_78Liters_Equals_Liters_7_57()
         {
             double gallon = volume.VolumeComverter(QuantityEnums.GALLON_TO_LETER, 1);
             double liters = volume.VolumeComverter(QuantityEnums.LITER, 3.78);
@@ -37,6 +59,9 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(expectedValue, addVolume);
         }
 
+        /// <summary>
+        /// one liter and one thousand mililiter should equal two liter
+        /// </summary>
         [Test]
         public void One_Liter_Plus_Thousand_Mililiter_Should_Equal_Two_Liter()
         {
@@ -47,6 +72,48 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(expectedValue, addVolums);
         }
 
+        /// <summary>
+        /// One liter and one thousand mililiter should equal 
+        /// </summary>
+        [Test]
+        public void One_Liter_And_Thousand_Mililiter_Should_Equal_Same()
+        {
+            double liter = volume.VolumeComverter(QuantityEnums.LITER, 1);
+            double mililiter = volume.VolumeComverter(QuantityEnums.MILILITER_TO_LITER, 1000);
+            Assert.AreEqual(liter, mililiter);
+        }
 
+        /// <summary>
+        /// one thousand mililiter should one liter
+        /// </summary>
+        [Test]
+        public void One_Thousand_Mililiter_Should_One_Liter()
+        {
+            double liter = volume.VolumeComverter(QuantityEnums.MILILITER_TO_LITER, 1000);
+            Assert.AreEqual(expected: 1, liter);
+        }
+
+        /// <summary>
+        /// Two liter and one thousand mililiter should not equal
+        /// </summary>
+        [Test]
+        public void Two_Liter_And_One_Thousand_Mililiter_Should_Not_Equal()
+        {
+            double liter = volume.VolumeComverter(QuantityEnums.LITER, 2);
+            double mililiterToLiter = volume.VolumeComverter(QuantityEnums.MILILITER_TO_LITER, 1000);
+            Assert.AreNotEqual(liter, mililiterToLiter);
+        }
+
+        /// <summary>
+        /// Two liter plus two liter should equal four liters
+        /// </summary>
+        [Test]
+        public void Two_Liter_Plus_Two_Liter_Should_Equal_Four_Liters()
+        {
+            double liter1 = volume.VolumeComverter(QuantityEnums.LITER, 2);
+            double liter2 = volume.VolumeComverter(QuantityEnums.LITER, 2);
+            double addTwovalue = addTwoValues.AddTwoValue(liter1, liter2);
+            Assert.AreEqual(expected:4, addTwovalue); ;
+        }
     }
 }
