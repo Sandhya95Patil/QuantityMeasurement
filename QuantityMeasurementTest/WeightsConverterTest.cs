@@ -7,6 +7,7 @@
 namespace QuantityMeasurementTest
 {
     using NUnit.Framework;
+    using QuantityMeasurement.Exception;
     using QuantityMeasurement.Service;
     using static QuantityMeasurement.Enum.QuantityEnum;
 
@@ -70,12 +71,30 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(expectedValue, addWeights);
         }
 
+        /// <summary>
+        /// one tonne and one thousand kilogram should equal
+        /// </summary>
         [Test]
         public void One_Tonne_And_Thousand_Kilogram_Should_Equal()
         {
             double oneTonne = weightsConverter.WeightConverter(QuantityEnums.TONNE_TO_KILOGRAM, 1);
             double kilogram = weightsConverter.WeightConverter(QuantityEnums.KILOGRAM, 1000);
             Assert.AreEqual(oneTonne, kilogram);
+        }
+
+        [Test]
+        public void When_Kilogram_And_Feet_Compare_Should_Throw_Exception()
+        {
+            try
+            {
+                double kilogram = weightsConverter.WeightConverter(QuantityEnums.KILOGRAM, 1);
+                double feet = weightsConverter.WeightConverter(QuantityEnums.FEET, 1);
+                Assert.AreEqual(kilogram, feet);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.QUANTITY_UNEQUALITY, e.EType);
+            }
         }
     }
 }
