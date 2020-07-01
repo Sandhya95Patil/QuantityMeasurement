@@ -390,5 +390,59 @@ namespace QuantityMeasurementTest
                 Assert.AreEqual(QuantityException.ExceptionType.QUANTITY_UNEQUALITY, e.EType);
             }
         }
+
+        /// <summary>
+        /// Given inch and farenheit when compared should throw exception
+        /// </summary>
+        [Test]
+        public void Given_Inch_And_Farenheit_When_Compare_Should_Throw_Exception()
+        {
+            try
+            {
+                double farenheit = length.ConvertValueInDifferentUnit(QuantityEnums.FAHRENHEIT, 1);
+                double inch = length.ConvertValueInDifferentUnit(QuantityEnums.INCH, 1);
+                Assert.AreEqual(farenheit, inch);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.QUANTITY_UNEQUALITY, e.EType);
+            }
+        }
+
+        /// <summary>
+        /// Given cm and gram when compared should throw exception
+        /// </summary>
+        [Test]
+        public void Given_CM_And_Gram_When_Compare_Should_Throw_Exception()
+        {
+            try
+            {
+                double cm = length.ConvertValueInDifferentUnit(QuantityEnums.CM, 1);
+                double gram = length.ConvertValueInDifferentUnit(QuantityEnums.GRAM, 1);
+                Assert.AreEqual(cm, gram);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.QUANTITY_UNEQUALITY, e.EType);
+            }
+        }
+
+        /// <summary>
+        /// Given cm and tonne when compared should throw exception
+        /// </summary>
+        [Test]
+        public void Given_CM_And_tonne_When_Compare_Should_Throw_Exception()
+        {
+            try
+            {
+                double cm = length.ConvertValueInDifferentUnit(QuantityEnums.CM, 1);
+                double tonne = length.ConvertValueInDifferentUnit(QuantityEnums.TONNE, 1);
+                Assert.AreEqual(cm, tonne);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.QUANTITY_UNEQUALITY, e.EType);
+            }
+        }
     }
 }

@@ -96,6 +96,9 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(expected: 4, addValues);
         }
 
+        /// <summary>
+        /// Liter and kilogram when compare should throw exception
+        /// </summary>
         [Test]
         public void When_Liter_And_Kilogram_Compare_Should_Throw_Exception()
         {
@@ -111,6 +114,9 @@ namespace QuantityMeasurementTest
             }
         }
 
+        /// <summary>
+        /// Gallon and tonne when compare should throw exception
+        /// </summary>
         [Test]
         public void When_Gallon_And_Tonne_Compare_Should_Throw_Exception()
         {
