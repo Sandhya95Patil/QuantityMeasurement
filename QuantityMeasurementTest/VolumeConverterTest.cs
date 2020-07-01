@@ -7,6 +7,7 @@
 namespace QuantityMeasurementTest
 {
     using NUnit.Framework;
+    using QuantityMeasurement.Exception;
     using QuantityMeasurement.Service;
     using static QuantityMeasurement.Enum.QuantityEnum;
 
@@ -83,6 +84,9 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(liter, mililiter);
         }
 
+        /// <summary>
+        /// Two liters and two thousand mililiter should four liters
+        /// </summary>
         [Test]
         public void Two_Liter_And_Two_Thousand_MiliLiter_Should_Equal_Four_Liter()
         {
@@ -90,6 +94,21 @@ namespace QuantityMeasurementTest
             double mililiterInLiter = volume.VolumeComverter(QuantityEnums.MILILITER_TO_LITER, 2000);
             double addValues = addTwoValues.AddTwoValue(liter1, mililiterInLiter);
             Assert.AreEqual(expected: 4, addValues);
+        }
+
+        [Test]
+        public void When_Liter_And_Kilogram_Compare_Should_Throw_Exception()
+        {
+            try
+            {
+                double liter = volume.VolumeComverter(QuantityEnums.LITER, 1);
+                double kilogram = volume.VolumeComverter(QuantityEnums.KILOGRAM, 1);
+                Assert.AreEqual(liter, kilogram);
+            }
+            catch(QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.QUANTITY_UNEQUALITY, e.EType);
+            }
         }
     }
 }
