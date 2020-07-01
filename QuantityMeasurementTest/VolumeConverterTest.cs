@@ -110,5 +110,20 @@ namespace QuantityMeasurementTest
                 Assert.AreEqual(QuantityException.ExceptionType.QUANTITY_UNEQUALITY, e.EType);
             }
         }
+
+        [Test]
+        public void When_Gallon_And_Tonne_Compare_Should_Throw_Exception()
+        {
+            try
+            {
+                double tonne = volume.VolumeComverter(QuantityEnums.TONNE, 1);
+                double gallonInLiter = volume.VolumeComverter(QuantityEnums.GALLON_TO_LETER, 1);
+                Assert.AreEqual(tonne, gallonInLiter);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.QUANTITY_UNEQUALITY, e.EType);
+            }
+        }
     }
 }
