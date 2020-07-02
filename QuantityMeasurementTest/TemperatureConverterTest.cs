@@ -37,26 +37,24 @@ namespace QuantityMeasurementTest
         public void Given212_Farenheit_Equal_100C()
         {
             double celsius = temperatureConverter.TempConverter(QuantityEnums.FARENHIET_TO_CELSIUS, 212);
-            double expectedValue = 100;
-            Assert.AreEqual(expectedValue, celsius);
+            Assert.AreEqual(expected: 100, celsius);
         }
 
         /// <summary>
-        /// convert celsius to farenheit
+        /// convert 100 celsius to 212 farenheit
         /// </summary>
         [Test]
-        public void Celsius_To_Farenheit()
+        public void Given100_Celsius_Should_Equal_212_Farenheit()
         {
             double farenhiet = temperatureConverter.TempConverter(QuantityEnums.CELSIUS_TO_FARENHIET, 100);
-            double expectedValue = 212;
-            Assert.AreEqual(expectedValue, farenhiet);
+            Assert.AreEqual(expected: 212, farenhiet);
         }
 
         /// <summary>
-        /// Liter and farenheit when compare should throw exception
+        /// Given liter in temperature method then should throw exception
         /// </summary>
         [Test]
-        public void Liter_And_Farenheit_When_Compare_Should_Throw_Exception()
+        public void Given_Liter_In_Temperature_Method_Then_Should_Throw_Exception()
         {
             try
             {
@@ -69,10 +67,10 @@ namespace QuantityMeasurementTest
         }
 
         /// <summary>
-        /// Feet and celsius when compare should throw exception
+        /// Given feet in temperature method then should throw exception
         /// </summary>
         [Test]
-        public void Feet_And_Celsius_When_Compare_Should_Throw_Exception()
+        public void Given_Feet_In_Temperature_Method_Then_Should_Throw_Exception()
         {
             try
             {

@@ -24,7 +24,7 @@ namespace QuantityMeasurementTest
         /// <summary>
         /// create field for add two values
         /// </summary>
-        public AddTwoValues addTwoValues;
+        public Adition addTwoValues;
 
         /// <summary>
         /// Set the instances
@@ -33,7 +33,7 @@ namespace QuantityMeasurementTest
         public void Setup()
         {
             this.length = new Length();
-            this.addTwoValues = new AddTwoValues();
+            this.addTwoValues = new Adition();
         }
 
         /// <summary>
@@ -347,7 +347,7 @@ namespace QuantityMeasurementTest
         }
 
         /// <summary>
-        /// Given feet and kilogram when compared should throw exception
+        /// Given kilogram in length method then should throw exception
         /// </summary>
         [Test]
         public void Given_Kilogram_In_Length_Method_Then_Should_Throw_Exception()
@@ -363,7 +363,7 @@ namespace QuantityMeasurementTest
         }
 
         /// <summary>
-        /// Given feet and celsius when compared should throw exception
+        /// Given celsius in length method then should throw exception
         /// </summary>
         [Test]
         public void Given_Celsius_In_Length_Method_Then_Should_Throw_Exception()
@@ -379,7 +379,7 @@ namespace QuantityMeasurementTest
         }
 
         /// <summary>
-        /// Given inch and farenheit when compared should throw exception
+        /// Given farenheit in length method then should throw exception
         /// </summary>
         [Test]
         public void Given_Farenheit_In_Length_Method_Then_Should_Throw_Exception()
@@ -395,7 +395,7 @@ namespace QuantityMeasurementTest
         }
 
         /// <summary>
-        /// Given cm and tonne when compared should throw exception
+        /// Given centimeter in length method then should throw exception
         /// </summary>
         [Test]
         public void Given_Centimeter_In_Length_Method_Then_Should_Throw_Exception()

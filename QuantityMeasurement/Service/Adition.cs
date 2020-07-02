@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="AddTwoValues.cs" company="BridgeLabz">
+// <copyright file="Adition.cs" company="BridgeLabz">
 //     Company copyright tag.
 // </copyright>
 // <creater name="Sandhya Patil"/>
@@ -11,7 +11,7 @@ namespace QuantityMeasurement.Service
     /// <summary>
     /// class for add two values
     /// </summary>
-    public class AddTwoValues : IAddTwoValues
+    public class Adition : IAddTwoValues
     {
         /// <summary>
         /// Method to add two values

@@ -19,7 +19,7 @@ namespace QuantityMeasurementTest
         /// <summary>
         /// initialise the instance
         /// </summary>
-        public AddTwoValues addTwoValue;
+        public Adition addTwoValue;
 
         /// <summary>
         /// initialise the instance
@@ -32,7 +32,7 @@ namespace QuantityMeasurementTest
         [SetUp]
         public void Setup()
         {
-            this.addTwoValue = new AddTwoValues();
+            this.addTwoValue = new Adition();
             this.weightsConverter = new WeightsConverter();
         }
 
@@ -40,22 +40,20 @@ namespace QuantityMeasurementTest
         /// one kg and thousand grams should equal
         /// </summary>
         [Test]
-        public void One_KG_And_Thousand_Grams_Should_Equal()
+        public void Given_One_KG_And_Thousand_Grams_Should_Equal()
         {
             double oneKGInGram = weightsConverter.WeightConverter(QuantityEnums.KILOGRAM_TO_GRAM, 1);
-            double expectedValue = 1000;
-            Assert.AreEqual(expectedValue, oneKGInGram);
+            Assert.AreEqual(expected: 1000, oneKGInGram);
         }
 
         /// <summary>
         /// one tonne and thousand kgs should equal
         /// </summary>
         [Test]
-        public void One_Tonne_And_Thousand_KGs_Should_Equal()
+        public void Given_One_Tonne_And_Thousand_KGs_Should_Equal()
         {
             double tonneToKGs = weightsConverter.WeightConverter(QuantityEnums.TONNE_TO_KILOGRAM, 1);
-            double expectedValue = 1000;
-            Assert.AreEqual(expectedValue, tonneToKGs);
+            Assert.AreEqual(expected: 1000, tonneToKGs);
         }
 
         /// <summary>
@@ -66,33 +64,29 @@ namespace QuantityMeasurementTest
         {
             double tonneToKGs = weightsConverter.WeightConverter(QuantityEnums.TONNE_TO_KILOGRAM, 1);
             double gram = weightsConverter.WeightConverter(QuantityEnums.KILOGRAM, 1);
-            double addWeights = addTwoValue.AddTwoValue(tonneToKGs, gram);
-            double expectedValue = 1001;
-            Assert.AreEqual(expectedValue, addWeights);
+            double result = addTwoValue.AddTwoValue(tonneToKGs, gram);
+            Assert.AreEqual(expected: 1001, result);
         }
 
         /// <summary>
         /// one tonne and one thousand kilogram should equal
         /// </summary>
         [Test]
-        public void One_Tonne_And_Thousand_Kilogram_Should_Equal()
+        public void Given_One_Tonne_And_Thousand_Kilogram_Should_Equal()
         {
             double oneTonne = weightsConverter.WeightConverter(QuantityEnums.TONNE_TO_KILOGRAM, 1);
-            double kilogram = weightsConverter.WeightConverter(QuantityEnums.KILOGRAM, 1000);
-            Assert.AreEqual(oneTonne, kilogram);
+            Assert.AreEqual(expected: 1000, oneTonne);
         }
 
         /// <summary>
-        /// When kilogram and feet compare should throw exception
+        /// Given feet in temperature method then should throw exception
         /// </summary>
         [Test]
-        public void When_Kilogram_And_Feet_Compare_Should_Throw_Exception()
+        public void Given_Feet_In_Weight_Method_Then_Should_Throw_Exception()
         {
             try
             {
-                double kilogram = weightsConverter.WeightConverter(QuantityEnums.KILOGRAM, 1);
-                double feet = weightsConverter.WeightConverter(QuantityEnums.FEET, 1);
-                Assert.AreEqual(kilogram, feet);
+                weightsConverter.WeightConverter(QuantityEnums.FEET, 1);
             }
             catch (QuantityException e)
             {
@@ -101,16 +95,14 @@ namespace QuantityMeasurementTest
         }
 
         /// <summary>
-        /// when inch and gram compare should throw exception
+        /// Given inch in temperature method then should throw exception
         /// </summary>
         [Test]
-        public void When_Inch_And_Gram_Compare_Should_Throw_Exception()
+        public void Given_Inch_In_Weight_Method_Then_Should_Throw_Exception()
         {
             try
             {
-                double inch = weightsConverter.WeightConverter(QuantityEnums.INCH, 1);
-                double gram = weightsConverter.WeightConverter(QuantityEnums.GRAM, 1);
-                Assert.AreEqual(inch, gram);
+                weightsConverter.WeightConverter(QuantityEnums.INCH, 1);
             }
             catch (QuantityException e)
             {
