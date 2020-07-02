@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="LengthConverter.cs" company="BridgeLabz">
+// <copyright file="Length.cs" company="BridgeLabz">
 //     Company copyright tag.
 // </copyright>
 // <creater name="Sandhya Patil"/>
@@ -22,12 +22,6 @@ namespace QuantityMeasurement.Service
         {
 
         }
-
-        /// <summary>
-        /// quantity enums
-        /// </summary>
-        private readonly Enum.QuantityEnum quantityEnum;
-        private readonly double value;
 
         /// <summary>
         /// Method for converte length

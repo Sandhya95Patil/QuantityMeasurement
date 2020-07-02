@@ -48,10 +48,10 @@ namespace QuantityMeasurementTest
         }
 
         /// <summary>
-        /// one gallon and 3.78 liters should equal 7.57 liters
+        /// one gallon and 3.78 liters should equal 7.56 liters
         /// </summary>
         [Test]
-        public void One_Gallon_Plus_3_78Liters_Equals_Liters_7_57()
+        public void One_Gallon_Plus_3_78Liters_Equals_Liters_7_56()
         {
             double gallon = volume.VolumeComverter(QuantityEnums.GALLON_TO_LETER, 1);
             double liters = volume.VolumeComverter(QuantityEnums.LITER, 3.78);

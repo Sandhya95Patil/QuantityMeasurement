@@ -59,10 +59,10 @@ namespace QuantityMeasurementTest
         }
 
         /// <summary>
-        /// one tonne and thousand grams should equal one thousand one
+        /// one tonne and thousand grams should equal one thousand one kilogram
         /// </summary>
         [Test]
-        public void One_Tonne_And_Thousand_Grams_Should_Equal_OneThousandOne()
+        public void One_Tonne_And_Thousand_Grams_Should_Equal_OneThousandOne_Kilogram()
         {
             double tonneToKGs = weightsConverter.WeightConverter(QuantityEnums.TONNE_TO_KILOGRAM, 1);
             double gram = weightsConverter.WeightConverter(QuantityEnums.KILOGRAM, 1);

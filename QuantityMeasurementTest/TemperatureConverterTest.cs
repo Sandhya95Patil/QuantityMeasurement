@@ -52,14 +52,15 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(expectedValue, farenhiet);
         }
 
+        /// <summary>
+        /// Liter and farenheit when compare should throw exception
+        /// </summary>
         [Test]
         public void Liter_And_Farenheit_When_Compare_Should_Throw_Exception()
         {
             try
             {
-                double liter = temperatureConverter.TempConverter(QuantityEnums.LITER, 1);
-                double farenheit = temperatureConverter.TempConverter(QuantityEnums.FARENHIET_TO_CELSIUS, 212);
-                Assert.AreEqual(liter, farenheit);
+                temperatureConverter.TempConverter(QuantityEnums.LITER, 1);
             }
             catch(QuantityException e)
             {
@@ -67,14 +68,15 @@ namespace QuantityMeasurementTest
             }
         }
 
+        /// <summary>
+        /// Feet and celsius when compare should throw exception
+        /// </summary>
         [Test]
         public void Feet_And_Celsius_When_Compare_Should_Throw_Exception()
         {
             try
             {
-                double feet = temperatureConverter.TempConverter(QuantityEnums.FEET, 1);
-                double celsius = temperatureConverter.TempConverter(QuantityEnums.CELSIUS, 212);
-                Assert.AreEqual(feet, celsius);
+                temperatureConverter.TempConverter(QuantityEnums.FEET, 1);
             }
             catch (QuantityException e)
             {
